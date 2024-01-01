@@ -38,7 +38,7 @@ $ telnet localhost 8888
 ```
 
 
-===user root does not have a password set===.
+==user root does not have a password set==.
 
 ### How this works?
 
