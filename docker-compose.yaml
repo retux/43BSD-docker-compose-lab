@@ -1,6 +1,6 @@
 services:
   43bsd01:
-    image: 43bsd:1988 
+    image: retux/43bsd:latest 
     cap_drop: 
       - all
     cap_add:
@@ -12,7 +12,7 @@ services:
       - BSDHOSTNAME=43bsd01
 
   43bsd02:
-    image: 43bsd:1988 
+    image: retux/43bsd:latest 
     cap_drop: 
       - all
     cap_add:
