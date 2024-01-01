@@ -1,0 +1,32 @@
+services:
+  43bsd01:
+    image: 43bsd:1988 
+    cap_drop: 
+      - all
+    cap_add:
+      - NET_RAW
+    ports:
+      - "8888:8888"
+    environment:
+      - IPADDR=192.168.3.138
+      - BSDHOSTNAME=43bsd01
+
+  43bsd02:
+    image: 43bsd:1988 
+    cap_drop: 
+      - all
+    cap_add:
+      - NET_RAW
+    ports:
+      - "8889:8888"
+    environment:
+      - IPADDR=192.168.3.139
+      - BSDHOSTNAME=43bsd02
+
+
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.3.0/24
