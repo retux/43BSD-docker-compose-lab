@@ -66,4 +66,10 @@ If you want to try running the container directly you could try this, though usi
 docker run --cap-drop=ALL --cap-add=NET_RAW -it --rm --name retux retux/43bsd:latest /bin/bash
 ```
 
+### Note
+
+4.3 BSD was developed by CSRG, University of California, Berkeley.
+4.3 was released in 1986.
+This compose is built for historical reasearch and testing, is not intended for any production or comercial use.
+BSD (Berkeley Software Distribution) is Copyright by University of California in Berkeley.
 
