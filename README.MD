@@ -26,6 +26,9 @@ for any testing purposes or home lab.
 
 ### How to run it
 
+In order to boot up two instances of 4.3BSD you can clone this repository or simply download docker-compose.yaml file.
+Based on that file the docker imaged should be pulled from docker registry.
+
 ```
 $ docker-compose up
 ```
