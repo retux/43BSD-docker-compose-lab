@@ -4,7 +4,7 @@ This docker compose is based on a docker image called retux/43bsd. The image is 
 tapes of 4.3BSD software distribution that have been mantained by the community.
 The container in turns uses simh emulator to emulate a vax 11/780 computer to run 4.3BSD from 1986.
 
-[code]
+```
 services:
   43bsd01:
     image: retux/43bsd:latest 
@@ -17,7 +17,7 @@ services:
     environment:
       - IPADDR=192.168.3.138
       - BSDHOSTNAME=43bsd01
-[/code]
+```
 
 As you see in order to be able to use pcap library (used by simh) some container capabilities have been dropped.
 Trying to set up the lessed privileged permissions.
@@ -26,19 +26,19 @@ for any testing purposes or home lab.
 
 ### How to run it
 
-[code]
+```
 $ docker-compose up
-[/code]
+```
 
 In order to telnet into each emulated host you can connect to the exposed port. First instance should be port 8888, second
 8889, etc:
 
-[code]
+```
 $ telnet localhost 8888
-[/code]
+```
 
 
-user root does not have a password set.
+===user root does not have a password set===.
 
 ### How this works?
 
@@ -51,8 +51,10 @@ are copied into 4.3BSD file system in order to set up hostname and ip address.
 You can see startup.sh script and the helpers script within tools directory.
 In order to create a simh compliant tape file mk-dist-tape.py script is used.
 
-mk-dist-tape.py -o de_drivers.tape de.tar
+```
+$ mk-dist-tape.py -o de_drivers.tape de.tar
 
+```
 Each 43BSD instance gets its hostname and ip address from compose file enviromental variables. See docker-compose.yaml
 
 
@@ -60,8 +62,8 @@ Each 43BSD instance gets its hostname and ip address from compose file enviromen
 
 If you want to try running the container directly you could try this, though using docker-compose is the prefered method.
 
-[code]
+```
 docker run --cap-drop=ALL --cap-add=NET_RAW -it --rm --name retux retux/43bsd:latest /bin/bash
-[/code]
+```
 
 
